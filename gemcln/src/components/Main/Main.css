@@ -1,0 +1,411 @@
+.main{
+    flex: 1;
+    min-height: 100vh;
+    padding-bottom: 15vh;
+    position: relative;
+    
+
+}
+
+.main .nav{
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+    font-size: 22px;
+    padding: 20px;
+    color:#585858;
+
+}
+/* Nav styling */
+.nav {
+    position: relative; /* Needed for absolute positioning of dropdown */
+    /* ... your existing nav styles ... */
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 7;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px;
+    z-index: 1000;
+    margin-top: 5px;
+    border-color: transparent;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-symbol {
+    font-size: 0.8em;
+    color: #666;
+    transition: transform 0.3s ease;
+}
+
+.nav-left:hover .dropdown-symbol {
+    color: #333;
+}
+
+/* Rotate symbol when dropdown is open */
+.nav-left:hover .dropdown-symbol,
+.dropdown-symbol {
+    transform: rotate(0deg);
+}
+
+.nav-left.active .dropdown-symbol {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu p {
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 2px 0;
+}
+
+.dropdown-menu p:hover {
+    background-color: #f5f5f5;
+}
+.main .nav img{
+    width: 40px;
+    border-radius:50% ;
+
+}
+.main-container{
+    max-width: 900px;
+    margin: auto;
+}
+.main .greet{
+    margin: 50px 0px;
+    font-size:56px;
+    color: #c4c7c5;
+    font-weight: 500;
+    padding: 20px;
+
+}
+.main .greet span{
+    background: -webkit-linear-gradient(16deg,#4b90ff,#ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.main .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.main .card {
+    height: 200px;
+    padding: 15px;
+    background: linear-gradient(180deg, #3f89ff 10%, #5dcff3 40%, #ffde00 100%);
+    background-size: 400% 400%;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    animation: waterFlow 6s infinite ease-in-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Simulated Water Waves */
+.main .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 80%);
+    mix-blend-mode: overlay;
+    opacity: 0.7;
+    animation: waveMotion 10s infinite linear;
+}
+
+/* Waterline Effect */
+.main .card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 200%;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.2);
+    clip-path: ellipse(50% 40% at 50% 100%);
+    transform: translateX(-50%);
+    animation: shoreline 8s infinite ease-in-out;
+}
+
+/* Water Flow Animation */
+@keyframes waterFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Wave Motion */
+@keyframes waveMotion {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-10px) translateY(5px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Shoreline Movement */
+@keyframes shoreline {
+    0% {
+        transform: translateX(-50%) translateY(5px);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+
+    
+
+.main .card img{
+    width: 35px;
+    padding: 0px;
+    position: absolute;
+    background-color: white;
+    border-radius:20px ;
+    bottom: 10px;
+    right: 10px;
+
+
+}
+.main .card p{
+color: #585858;
+font-size: 17px;
+}
+.main .card:hover{
+    background-color: #dfe4ea;
+    cursor: pointer;
+}
+.main-bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px;
+    padding: 0px  20px;
+    margin: auto;
+
+}
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #f0f4f9; /* Optional: to make the shadow more visible */
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.search-box img{
+    width: 24px
+    ;
+    cursor: pointer;
+}
+.search-box input{
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 17px;
+}
+.search-box div{
+    display: flex; 
+    align-items: center;
+    gap: 15px;
+}
+.main .bottom-info{
+    text-align: center;
+    font-size: 13px;
+    margin: 15px auto;
+   
+    font-weight: 300;
+}
+.result{
+    padding: 0px 5%;
+    max-height: 70vh;
+    overflow: scroll;
+}
+.result::-webkit-scrollbar{
+    display: none;
+}
+.result-tittle{
+    margin: 40px 0px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.result img{
+    width: 40px;
+    border-radius: 50%;
+}
+.result-data{
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+.loader{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.loader hr{
+    border-radius: 4px;
+    border: none;
+    background-color: #f6f7f8;
+    background: linear-gradient(to right,#9ed7ff,#ffffff,#9ed7ff);
+    background-size: 800px;
+    height: 20px;
+    animation: loader 3s infinite linear;
+
+}
+@keyframes loader {
+    0%{
+        background-position: -800px 0px;
+    }
+    100%{
+        background-position: 800px 0px;
+    }
+    
+}
+.result-data p{
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.8;
+
+
+}
+.result-data img{
+    width: 74px;
+}
+/* Existing styles remain the same */
+
+@media (max-width: 768px) {
+    .main {
+        min-height: auto;
+        padding-bottom: 15px;
+        width: 20px;
+    }
+
+    .main .greet {
+        font-size: 36px;
+        margin: 30px 0;
+        padding: 10px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr !important;
+        gap: 10px;
+    }
+
+    .card {
+        height: 150px !important;
+        margin: 0 10px;
+    }
+
+    .main-container {
+        padding: 0 10px;
+        max-width: 100%;
+    }
+
+    .search-box {
+        margin: 0 10px;
+        border-radius: 25px;
+        padding: 8px 15px;
+    }
+
+    .search-box input {
+        font-size: 15px;
+    }
+
+    .nav {
+        font-size: 18px !important;
+        padding: 15px !important;
+    }
+
+    .main-bottom {
+        position: absolute;
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main .greet {
+        font-size: 28px;
+        margin: 20px 0;
+    }
+
+    .card p {
+        font-size: 15px;
+    }
+
+    .search-box {
+        gap: 10px;
+    }
+
+    .search-box img {
+        width: 14px;
+        /* margin-right: -14px; */
+        /* margin-right: -14px; */
+        margin: -24px;
+    }
+
+    .nav img {
+        width: 35px;
+    }
+
+    .bottom-info {
+        font-size: 11px !important;
+    }
+
+    .result-tittle {
+        flex-direction: row;
+        gap: 10px;
+        margin: 20px -11px;
+        margin-left: 115px;
+    }
+    .result-data {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Add this to prevent horizontal overflow */
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/*  */
